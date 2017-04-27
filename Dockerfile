@@ -1,6 +1,6 @@
 FROM centos:7
 MAINTAINER Peter Kuczaj <peter.kuczaj@appdirect.com>
-ENV NODEJS_VERSION=v4.3.1
+ENV NODEJS_VERSION=v6.9.5
 ENV PATH=/apps/node/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin
 
 WORKDIR /node
