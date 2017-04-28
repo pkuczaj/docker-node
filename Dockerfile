@@ -13,8 +13,7 @@ RUN yum -y install make gcc gcc-c++ \
  && tar xf node-${NODEJS_VERSION}-linux-x64.tar.xz \
  && mv node-${NODEJS_VERSION}-linux-x64 node \
  && npm set registry https://artifactory.appcarousel.com/api/npm/npm \
- && npm install -g grunt-cli \
- && npm install -g mocha
+ && npm install -g grunt grunt-cli  mocha
 
 #npm install -f eslint
 #npm install -g jsdoc
