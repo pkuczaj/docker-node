@@ -15,15 +15,11 @@ RUN yum -y install make gcc gcc-c++ \
  && tar xf node-${NODEJS_VERSION}-linux-x64.tar.xz \
  && mv node-${NODEJS_VERSION}-linux-x64 node \
  && npm set registry https://artifactory.appcarousel.com/api/npm/npm \
+ && npm set prefix /usr/local \
  && npm install -g grunt \
  && npm install -g grunt-cli \
- && npm install -g mocha
+ && npm install -g mocha \
+ && chmod +x /run-node.sh \
+ && useradd john
 
-#npm install -f eslint
-#npm install -g jsdoc
-#npm install -g istanbul
-#npm install -g mkdirp
-#npm install -g fixpack
-#npm install -g jade
-
-CMD "npm start"
+CMD [ "/run-node.sh" ]
