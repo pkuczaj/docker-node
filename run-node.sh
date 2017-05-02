@@ -10,4 +10,6 @@ chown john $LOGDIR
 update-ca-trust force-enable
 update-ca-trust extract
 
-exec /bin/su -s /bin/sh -c "/usr/bin/node $*" john >> ${LOGDIR}/uncaught_stdout.log 2>> ${LOGDIR}/uncaught_stderr.log
+cd /node
+
+exec /bin/su -s /bin/sh -c "node . '--WMPropertiesPattern=./config/$ENVIRONMENT/*_config.json' --WMUseSimpleLogger" john >> ${LOGDIR}/uncaught_stdout.log 2>> ${LOGDIR}/uncaught_stderr.log
