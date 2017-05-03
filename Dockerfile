@@ -7,10 +7,6 @@ ADD run-node.sh /
 
 WORKDIR /node
 
-EXPOSE 80
-EXPOSE 443
-EXPOSE 1000-10000
-
 RUN yum -y install make gcc gcc-c++ \
  && yum -y clean all \
  && mkdir /apps \
