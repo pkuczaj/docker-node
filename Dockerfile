@@ -19,6 +19,7 @@ RUN yum -y install make gcc gcc-c++ \
  && npm install -g grunt \
  && npm install -g grunt-cli \
  && npm install -g mocha \
+ && npm set progress=false \
  && chmod +x /run-node.sh \
  && useradd john
 
