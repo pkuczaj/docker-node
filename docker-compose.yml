@@ -1,0 +1,20 @@
+version: '2'
+services:
+  nodeservice:
+    build: .
+    environment:
+    - ENVIRONMENT=test
+    ports:
+    - "80:80"
+    - "8133:8133"
+    volumes:
+    - fullexample-sync:/Users/pkuczaj/Development:/Users/pkuczaj/Development:nocopy
+    - fullexample-sync:/Users/pkuczaj/Development/wmode-rubicon-cms-bridge:/node:nocopy
+    - fullexample-sync:~/Development:/root/Development:nocopy
+    - fullexample-sync:/usr/local/lib/node_modules:/usr/local/lib/node_modules:nocopy
+    external_links:
+     - mongodb:mongolb
+     - mysql:mysql
+volumes:
+  fullexample-sync:
+    external: true

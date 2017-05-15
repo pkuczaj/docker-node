@@ -13,7 +13,7 @@ update-ca-trust extract
 cd /node
 
 # Run command for local Dev environments
-exec /bin/su -s /bin/sh -c "node . '--WMPropertiesPattern=./config/$ENVIRONMENT/*_config.json'" john
+exec /bin/su -s /bin/sh -c "node . '--WMPropertiesPattern=./config/$ENVIRONMENT/*_config.json' --WMUseSimpleLogger" john
 
 # Run command that's it used in the Kube system
 # exec /bin/su -s /bin/sh -c "node . '--WMPropertiesPattern=./config/$ENVIRONMENT/*_config.json' --WMUseSimpleLogger" john >> ${LOGDIR}/uncaught_stdout.log 2>> ${LOGDIR}/uncaught_stderr.log
