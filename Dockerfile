@@ -25,6 +25,7 @@ RUN npm install -g \
         mocha \
         npm-check-updates \
         semver \
+ && npm set registry https://artifactory.appcarousel.com/api/npm/npm \
  && npm cache clean \
  && mkdir -p /node \
  && npm set progress=false \
