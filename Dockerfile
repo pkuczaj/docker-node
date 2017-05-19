@@ -5,21 +5,33 @@ ENV PATH=/apps/node/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin
 
 ADD run-node.sh /
 
-WORKDIR /node
-
-RUN yum -y install make gcc gcc-c++ \
- && yum -y clean all \
+RUN mkdir -p /var/run/lock \
+ && yum -y update \
+ && yum -y install ca-certificates git \
  && mkdir /apps \
  && cd /apps \
  && curl -s -L -O https://nodejs.org/dist/${NODEJS_VERSION}/node-${NODEJS_VERSION}-linux-x64.tar.xz \
  && tar xf node-${NODEJS_VERSION}-linux-x64.tar.xz \
  && mv node-${NODEJS_VERSION}-linux-x64 node \
+ && yum clean all \
+ && useradd -c 'John Doe' -d /dev/null -s /bin/false -M -u 1999 john
+
+RUN npm install -g \
+        grunt-cli \
+        grunt-init \
+        jq \
+        mocha \
+        npm-check-updates \
+        semver \
  && npm set registry https://artifactory.appcarousel.com/api/npm/npm \
+ && npm cache clean \
+ && mkdir -p /node \
+ && npm set progress=false \
  && npm set prefix /usr/local \
- && npm install -g grunt \
- && npm install -g grunt-cli \
- && npm install -g mocha \
- && chmod +x /run-node.sh \
- && useradd john
+ && chmod +x /run-node.sh
+
+VOLUME [ "/node" ]
+
+WORKDIR "/node"
 
 CMD [ "/run-node.sh" ]
