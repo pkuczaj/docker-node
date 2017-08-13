@@ -1,0 +1,8 @@
+master:
+  stage: deploy
+  script: sudo /runners/docker/buildNode
+  tags:
+    - webServer
+  only:
+    - master
+
