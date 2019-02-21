@@ -1,6 +1,6 @@
 FROM centos:7
 MAINTAINER Peter Kuczaj <peter.kuczaj@appdirect.com>
-ENV NODEJS_VERSION=v6.10.2
+ENV NODEJS_VERSION=v8.15.0
 ENV PATH=/apps/node/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/bin
 
 ADD run-node.sh /
