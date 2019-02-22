@@ -26,7 +26,7 @@ RUN npm install -g \
         npm-check-updates \
         semver \
  && npm set registry https://artifactory.appcarousel.com/api/npm/npm \
- && npm cache clean \
+ && npm cache verify \
  && mkdir -p /node \
  && npm set progress=false \
  && npm set prefix /usr/local \
