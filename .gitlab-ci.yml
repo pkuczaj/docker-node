@@ -4,5 +4,5 @@ master:
   tags:
     - webServer
   only:
-    - master
+    - node8
 
